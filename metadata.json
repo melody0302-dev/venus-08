@@ -1,0 +1,6 @@
+{
+  "name": "Venus 智算服务",
+  "description": "人工智能算力集群管理平台全局导航框架与控制台",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
