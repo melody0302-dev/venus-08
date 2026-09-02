@@ -7,7 +7,7 @@ import { Region, UserProfile } from './types';
 
 export default function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
-  const [activeNavItemId, setActiveNavItemId] = useState<string>('overview');
+  const [activeNavItemId, setActiveNavItemId] = useState<string>('tenant-resources');
   const [activeRegion, setActiveRegion] = useState<Region>(REGIONS_LIST[0]);
 
   // User profile matching screenshot details (admin, -¥94,736 balance)

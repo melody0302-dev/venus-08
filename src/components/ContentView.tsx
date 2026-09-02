@@ -2,6 +2,10 @@ import React from 'react';
 import { NavItem, Region, UserProfile } from '../types';
 import { NAVIGATION_GROUPS } from '../data/navigation';
 import { OverviewDashboard } from './OverviewDashboard';
+import { BillingDetailsView } from './BillingDetailsView';
+import { OrganizationManagementView } from './OrganizationManagementView';
+import { AIAssetsManagementView } from './AIAssetsManagementView';
+import { TenantResourcesView } from './TenantResourcesView';
 import { Layers, RefreshCw, CheckCircle } from 'lucide-react';
 
 interface ContentViewProps {
@@ -31,29 +35,46 @@ export const ContentView: React.FC<ContentViewProps> = ({
 
   return (
     <div className="flex-1 overflow-y-auto bg-[#f4f6f9] p-6 space-y-6">
-      {/* Top Welcome / Header Banner matching screenshot */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
-        <div>
-          {/* Page Title */}
-          <h1 className="text-xl font-bold text-slate-900 tracking-tight">
-            {pageTitle}
-          </h1>
-        </div>
+      {/* Top Welcome / Header Banner (AI资产管理与租户资源自身带有规范标题与布局，仅在其他通用页面展示外层顶栏) */}
+      {activeNavItemId !== 'ai-assets' && activeNavItemId !== 'tenant-resources' && (
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
+          <div>
+            <h1 className="text-xl font-bold text-slate-900 tracking-tight">
+              {pageTitle}
+            </h1>
+          </div>
 
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => window.location.reload()}
-            className="p-1.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg text-xs flex items-center space-x-1 cursor-pointer transition-colors shadow-2xs"
-            title="刷新数据"
-          >
-            <RefreshCw className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center space-x-2">
+            {activeNavItemId === 'billing-details' && (
+              <button
+                type="button"
+                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-xs font-medium transition-colors shadow-2xs cursor-pointer"
+              >
+                旧版本
+              </button>
+            )}
+            <button
+              onClick={() => window.location.reload()}
+              className="p-1.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-lg text-xs flex items-center space-x-1 cursor-pointer transition-colors shadow-2xs"
+              title="刷新数据"
+            >
+              <RefreshCw className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Render Overview Dashboard if on Overview menu, otherwise render blank content slot */}
+      {/* Render matching view based on active menu item */}
       {activeNavItemId === 'overview' ? (
         <OverviewDashboard activeRegion={activeRegion} user={user} />
+      ) : activeNavItemId === 'ai-assets' ? (
+        <AIAssetsManagementView />
+      ) : activeNavItemId === 'tenant-resources' ? (
+        <TenantResourcesView />
+      ) : activeNavItemId === 'billing-details' ? (
+        <BillingDetailsView />
+      ) : activeNavItemId === 'organization-management' ? (
+        <OrganizationManagementView />
       ) : (
         <div className="bg-white rounded-xl border border-slate-200/80 shadow-xs p-8 min-h-[520px] flex flex-col items-center justify-center text-center relative overflow-hidden">
           {/* Subtle grid background pattern */}

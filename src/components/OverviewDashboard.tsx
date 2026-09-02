@@ -105,7 +105,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({ activeRegi
                 <div className="w-6 h-6 rounded bg-blue-50 text-blue-600 flex items-center justify-center">
                   <Server className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-800">开发机 (Jupyter/SSH)</span>
+                <span className="text-xs font-semibold text-slate-800">开发机</span>
               </div>
               <span className="text-[11px] text-indigo-600 font-medium hover:underline cursor-pointer">列表</span>
             </div>
@@ -136,7 +136,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({ activeRegi
                 <div className="w-6 h-6 rounded bg-purple-50 text-purple-600 flex items-center justify-center">
                   <Zap className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-800">推理服务 (Inference)</span>
+                <span className="text-xs font-semibold text-slate-800">推理服务</span>
               </div>
               <span className="text-[11px] text-indigo-600 font-medium hover:underline cursor-pointer">列表</span>
             </div>
@@ -167,7 +167,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({ activeRegi
                 <div className="w-6 h-6 rounded bg-amber-50 text-amber-600 flex items-center justify-center">
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-800">模型微调 (Fine-Tuning)</span>
+                <span className="text-xs font-semibold text-slate-800">模型微调</span>
               </div>
               <span className="text-[11px] text-indigo-600 font-medium hover:underline cursor-pointer">列表</span>
             </div>
@@ -200,7 +200,6 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({ activeRegi
             <Server className="w-4 h-4 text-indigo-600" />
             <h3 className="text-sm font-bold text-slate-800">节点与 GPU 服务器信息</h3>
           </div>
-          <span className="text-[11px] text-slate-400 font-mono">PCIe x16 Direct Connect · 实时监控</span>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
@@ -414,11 +413,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({ activeRegi
           <div>
             <h3 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
               <Layers className="w-4 h-4 text-indigo-600" />
-              <span>任务拓扑 (Cluster Task & Slot Allocation)</span>
+              <span>任务拓扑</span>
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
-              集群卡槽物理占用与任务映射关联图 (Block 1 - 32 Slots)
-            </p>
           </div>
 
           <div className="flex items-center space-x-2 text-xs">
